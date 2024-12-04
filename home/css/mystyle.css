@@ -1,14 +1,71 @@
+/* Body background and text color for dark mode */
 body {
-    background-color: rgb(114, 114, 224);
-  }
-  
-  h1 {
-    color: white;
-    text-align: center;
-  }
-  
-  p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-  }
-  
+    background-color: #121212;  /* Dark background */
+    color: #f1f1f1;  /* Light text color for readability */
+    font-family: Arial, Helvetica, sans-serif;  /* Simple sans-serif font */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header style for "Hi, I am Lloyd" */
+h1 {
+    color: #ffffff;  /* White text color */
+    text-align: center;  /* Center-align the text */
+    margin-top: 50px;  /* Space from the top */
+    font-size: 36px;  /* Larger text size */
+}
+
+/* Paragraph styling */
+p {
+    font-size: 18px;  /* Slightly smaller font size */
+    line-height: 1.6;  /* Increased line height for better readability */
+    text-align: center;  /* Center-align the paragraph */
+    margin: 20px;  /* Space around paragraphs */
+}
+
+/* Styling for unordered list */
+ul {
+    list-style-type: none;  /* Remove default bullets */
+    padding: 0;  /* Remove padding */
+}
+
+ul li {
+    font-size: 18px;  /* Size for list items */
+    margin: 10px 0;  /* Space between list items */
+}
+
+/* Styling for table */
+table {
+    width: 100%;  /* Table should take full width */
+    margin-top: 20px;  /* Space from other content */
+    border-collapse: collapse;  /* Remove spacing between table cells */
+}
+
+th, td {
+    padding: 10px;  /* Padding inside cells */
+    text-align: left;  /* Align text to the left */
+    border-bottom: 1px solid #444;  /* Dark border for separation */
+}
+
+th {
+    background-color: #333;  /* Dark background for table headers */
+    color: #fff;  /* White text color */
+}
+
+/* Styling for images */
+img {
+    max-width: 100%;  /* Ensure images fit within the page */
+    height: auto;  /* Maintain aspect ratio */
+    display: block;  /* Remove space below images */
+    margin: 20px auto;  /* Center-align the images */
+}
+
+/* Simple link styling */
+a {
+    color: #1e90ff;  /* Bright blue color for links */
+    text-decoration: none;  /* Remove underline */
+}
+
+a:hover {
+    text-decoration: underline;  /* Underline on hover */
+}
