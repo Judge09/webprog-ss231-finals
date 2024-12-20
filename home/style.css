@@ -1,0 +1,19 @@
+body.light-mode {
+    background-color: white;
+    color: black;
+}
+.light-mode .bg-dark {
+    background-color: #f8f9fa !important;
+    color: black !important;
+}
+.light-mode .bg-secondary {
+    background-color: #e9ecef !important;
+    color: black !important;
+}
+.light-mode .table-dark {
+    background-color: #f8f9fa !important;
+    color: black;
+}
+.light-mode .table-dark th,
+.light-mode .table-dark td {
+    color: black;}
