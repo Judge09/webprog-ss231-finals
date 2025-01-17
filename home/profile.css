@@ -12,7 +12,7 @@ body.dark-mode {
 }
 
 body.light-mode {
-    background: #fff url('BG-LIGHT.png') no-repeat center center fixed;
+    background: #000 url('galaxy.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #333;
 }
