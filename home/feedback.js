@@ -3,21 +3,23 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            name: '',
-            email: '',
-            message: '',
-            submitted: false
+            feedbackMessage: "",
+            rating: 0,
+            submittedMessage: ""
         };
     },
     methods: {
+        setRating(star) {
+            this.rating = star;
+        },
         submitFeedback() {
-            this.submitted = true;
-            // Add additional logic to handle the form data if needed.
-            console.log("Feedback submitted:", {
-                name: this.name,
-                email: this.email,
-                message: this.message
-            });
+            if (this.feedbackMessage.trim() === "" || this.rating === 0) {
+                alert("Please provide feedback and a rating.");
+                return;
+            }
+            this.submittedMessage = `You rated ${this.rating} stars and said: "${this.feedbackMessage}"`;
+            this.feedbackMessage = "";
+            this.rating = 0;
         }
     }
-}).mount('#app');
+}).mount("#feedback-app");
