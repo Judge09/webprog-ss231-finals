@@ -25,6 +25,7 @@ body.light-mode {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.6);
 }
 
 body.light-mode .nav-bar {
@@ -35,6 +36,13 @@ body.light-mode .nav-bar {
 .nav-bar a {
     color: #ffd700;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-bar a:hover {
+    color: #ff4500; /* Fiery red for hover effect */
 }
 
 body.light-mode .nav-bar a {
@@ -65,56 +73,75 @@ main {
 
 /* Content Area Styles */
 .content-area {
-    flex: 1; /* Take up available space */
+    flex: 1;
     padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
-.character-img {
-    max-width: 300%; /* Ensures it doesn't exceed the container's size */
-    height: auto;    /* Maintains the aspect ratio */
-    width: 300px;    /* Set a specific width */
-    transition: transform 0.3s ease; /* Adds smooth animation when resizing */
+/* Feedback Stars */
+.stars {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 5px;
 }
 
+.stars i {
+    font-size: 2rem;
+    color: #ffd700;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.stars i:hover,
+.stars i.active {
+    color: #ff4500;
+    transform: scale(1.2);
+}
+
+/* Character Image and Floating Animation */
 .character-img {
-    max-width: 100%; /* Ensures the image scales correctly */
-    height: auto; /* Maintains the aspect ratio */
-    width: 300px; /* Default size */
-    transition: transform 0.3s ease; /* Smooth scaling on hover */
-    animation: float 3s infinite ease-in-out; /* Floating animation */
+    max-width: 100%;
+    height: auto;
+    width: 300px;
+    transition: transform 0.3s ease;
+    animation: float 3s infinite ease-in-out;
+    border: 5px solid #ffd700;
+    border-radius: 10px;
 }
 
 .character-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 0 0 35%; /* Adjusts how much space the character container takes */
+    flex: 0 0 35%;
 }
 
 /* Floating Animation */
 @keyframes float {
     0%, 100% {
-        transform: translateY(0); /* Original position */
+        transform: translateY(0);
     }
     50% {
-        transform: translateY(-10px); /* Moves up by 10px */
+        transform: translateY(-10px);
     }
 }
 
 /* Adjust size based on theme */
 body.dark-mode .character-img {
-    width: 500px; /* Larger size for dark mode */
+    width: 500px;
 }
 
 body.light-mode .character-img {
-    width: 850px; /* Smaller size for light mode */
+    width: 850px;
 }
 
 /* Hover Effect for Enlarge */
 .character-img:hover {
-    transform: scale(1.1); /* Enlarges image on hover */
+    transform: scale(1.1);
 }
-
 
 /* Footer Styles */
 footer {
@@ -125,8 +152,11 @@ footer {
     color: #ffd700;
     border-top: 2px solid #ffd700;
     padding: 10px 0;
+    text-align: center;
+    font-weight: bold;
 }
 
-/*
-
-*/
+/* Yu-Gi-Oh Style Glow Effect */
+.glow {
+    text-shadow: 0 0 5px #ffd700, 0 0 10px #ff4500, 0 0 20px #ff4500, 0 0 40px #ff6347;
+}
