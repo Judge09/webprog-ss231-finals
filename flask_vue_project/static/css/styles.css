@@ -663,3 +663,47 @@ html, body {
     font-family: 'Courier New', monospace;
     width: 100%;
 }
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-bar a {
+        font-size: 0.9em;
+        margin: 5px;
+    }
+
+    .text-with-image {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-content {
+        font-size: 1.1em;
+        text-align: center;
+    }
+
+    .image-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .glitch-text {
+        font-size: 1.8em;
+    }
+
+    .text-content {
+        font-size: 1em;
+    }
+
+    .image-container {
+        max-width: 90%;
+    }
+
+    .secret-text {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+}
+

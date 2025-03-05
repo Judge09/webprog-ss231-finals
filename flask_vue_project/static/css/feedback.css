@@ -1,16 +1,15 @@
-/* hacker-inspired dark mode */
+/* Hacker-inspired dark mode */
 body {
     background: #010f14;
     color: #00ff99;
     font-family: 'Courier New', monospace;
-    text-align: center;
     text-align: center;
     transform: scale(0.75);
     transform-origin: top left;
     width: calc(100% / 0.75);
 }
 
-/* navigation bar */
+/* Navigation bar */
 .nav-bar {
     background: black;
     border-bottom: 2px solid #00ff99;
@@ -28,20 +27,44 @@ body {
     text-decoration: underline;
 }
 
-/* Terminal Container (Window Style) */
-/* Lowered Terminal Container (Window Style) */
+/* Hacking Console (System Console) */
+.hacking-console {
+    background: black;
+    border: 2px solid #00ff99;
+    box-shadow: 0 0 15px #00ff99;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 850px;
+    text-align: left;
+}
+
+.console-header {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #00ff99;
+    margin-bottom: 10px;
+}
+
+.console-body {
+    background: #111;
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    color: #00ff99;
+    min-height: 200px;
+}
+
+/* Terminal Container (Now Positioned Below System Console) */
+/* Terminal Container */
 .terminal-container {
-    position: fixed;
-    top: 200%; /* Moved down from 50% to 60% */
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     width: 850px;
     background: #222;
     border: 3px solid #00ff99;
     box-shadow: 0 0 15px #00ff99;
     z-index: 1000;
+    margin: 30px auto;
+    max-width: 90%; /* Makes it responsive */
 }
-
 
 /* Terminal Window */
 .terminal-window {
@@ -75,7 +98,7 @@ body {
 /* Terminal */
 .terminal {
     width: 100%;
-    height: 500px;
+    height: 300px;
     background: black;
     color: #00ff99;
     font-family: 'Courier New', monospace;
@@ -84,14 +107,14 @@ body {
     flex-direction: column;
 }
 
-/* Terminal Body (Align Text Left) */
+/* Terminal Body */
 .terminal-body {
     flex-grow: 1;
     overflow-y: auto;
     font-size: 1.2em;
     line-height: 1.5;
-    text-align: left; /* Aligns text to the left */
-    padding-left: 15px; /* Adds padding for better readability */
+    text-align: left;
+    padding-left: 15px;
 }
 
 /* Terminal Input */
@@ -117,7 +140,57 @@ body {
     font-size: 1.2em;
 }
 
-/* Feedback List */
+/* Responsive Design */
+@media (max-width: 768px) {
+    .terminal-container {
+        max-width: 95%;
+    }
+
+    .terminal {
+        height: 250px;
+    }
+
+    .terminal-title-bar {
+        font-size: 1em;
+        padding: 8px;
+    }
+
+    .terminal-body {
+        font-size: 1em;
+    }
+
+    .terminal-input {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .terminal-container {
+        max-width: 100%;
+        margin: 15px auto;
+    }
+
+    .terminal {
+        height: 220px;
+    }
+
+    .terminal-title-bar {
+        font-size: 0.9em;
+        padding: 6px;
+    }
+
+    .terminal-body {
+        font-size: 0.9em;
+    }
+
+    .terminal-input {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+}
+
+
+/* Feedback List Container */
 .feedback-list-container {
     max-width: 850px;
     margin: 40px auto;
@@ -128,16 +201,63 @@ body {
     box-shadow: 0 0 10px #00ff99;
 }
 
+/* Feedback Header */
 .feedback-list-container h2 {
     color: #00ff99;
     text-align: center;
 }
 
-.feedback-entry {
-    background: #111;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    color: white;
+/* Feedback Entries in a Tile Grid */
+.feedback-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 15px;
+    padding-top: 10px;
 }
 
+/* Individual Feedback Tile */
+.feedback-entry {
+    background: #111;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #00ff99;
+    box-shadow: 0 0 8px #00ff99;
+    text-align: left;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+}
+
+.feedback-entry:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Ensure the whole page takes up at least the full viewport height */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make sure the main content takes up the available space */
+.page-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 50px;
+}
+
+/* Fix Footer to Stay at Bottom */
+.site-footer {
+    background: black;
+    color: #00ff99;
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid #00ff99;
+    font-family: 'Courier New', monospace;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}

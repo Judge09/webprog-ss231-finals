@@ -13,12 +13,30 @@
 
    <!-- Navigation Bar -->
    <header class="nav-bar text-center py-3">
-    <a href="{{ url_for('index') }}" class="mx-2"><i class="fas fa-home icon"></i> Home</a>
-    <a href="{{ url_for('about') }}" class="mx-2"><i class="fas fa-user icon"></i> About Me</a>
-    <a href="{{ url_for('gallery') }}" class="mx-2"><i class="fas fa-image icon"></i> Gallery</a>
-    <a href="{{ url_for('feedback') }}" class="mx-2"><i class="fas fa-comments icon"></i> Feedback</a>
-    <a href="{{ url_for('sources') }}" class="mx-2"><i class="fas fa-terminal icon"></i> Sources</a>
-</header>
+        <a href="{{ url_for('index') }}" class="mx-2"><i class="fas fa-home icon"></i> Home</a>
+        <a href="{{ url_for('about') }}" class="mx-2"><i class="fas fa-user icon"></i> About Me</a>
+        <a href="{{ url_for('gallery') }}" class="mx-2"><i class="fas fa-image icon"></i> Gallery</a>
+        <a href="{{ url_for('feedback') }}" class="mx-2"><i class="fas fa-comments icon"></i> Feedback</a>
+        <a href="{{ url_for('sources') }}" class="mx-2"><i class="fas fa-terminal icon"></i> Sources</a>
+   </header>
+
+    <!-- Intro Section -->
+    <section class="intro-section text-center">
+        <h2>References & Sources</h2>
+        <p>This page contains the references and resources used to build this website, including frameworks, libraries, and inspirations.</p>
+    </section>
+
+    <section class="concept-section text-center">
+        <h3>Website Concept</h3>
+        <p>
+            This website is designed to showcase my skills, projects, and personal interests in a hacker-inspired aesthetic.  
+            It is built using Flask for the backend and Vue for dynamic interactivity, ensuring a smooth and responsive user experience.  
+            The site features a dynamic feedback system powered by Supabase, an interactive terminal log for displaying logs in a cyberpunk-style interface,  
+            and an organized gallery to highlight different aspects of my personal and academic journey.  
+            Additional integrations include Bootstrap for styling, FontAwesome for icons, and a matrix-style effect to enhance the immersive feel of the design.
+        </p>
+    </section>
+    
 
     <!-- Terminal Log -->
     <div class="terminal">
@@ -31,4 +49,14 @@
     </div>
 
 </body>
+
+<footer class="site-footer">
+    <p>© 2024 Jhon Lloyd Nicolas. All Rights Reserved.</p>
+    <div class="footer-socials">
+        <a href="https://github.com/Judge09" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/jhon-lloyd-nicolas/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@jhonlloydnicolas5742" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+</footer>
+
 </html>

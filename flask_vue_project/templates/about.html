@@ -25,7 +25,7 @@
     <main class="container about-container">
         <!-- Profile Section -->
         <div class="profile-section">
-            <img src="profile-about.jpg" alt="Hacker Avatar" class="profile-pic">
+            <img src="{{ url_for('static', filename='img/profile-about.jpg') }}" alt="Profile Image" class="profile-pic">
             <div class="profile-info">
                 <h2>User: <span id="username">Jhon Lloyd Nicolas</span></h2>
                 <p><strong>Code Name:</strong> <span class="codename">Judge</span></p>
@@ -61,6 +61,17 @@
             <p id="typed-bio"></p>
         </div>
     </main>
+    
 
 </body>
+
+<footer class="site-footer">
+    <p>© 2024 Jhon Lloyd Nicolas. All Rights Reserved.</p>
+    <div class="footer-socials">
+        <a href="https://github.com/Judge09" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/jhon-lloyd-nicolas/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@jhonlloydnicolas5742" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+</footer>
+
 </html>

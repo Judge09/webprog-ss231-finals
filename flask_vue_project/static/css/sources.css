@@ -1,8 +1,9 @@
-/* Dark Mode */
+/* General Styling */
 body {
     background: #010f14;
     color: #00ff99;
     font-family: 'Courier New', monospace;
+    text-align: center;
     transform: scale(0.75);
     transform-origin: top left;
     width: calc(100% / 0.75);
@@ -26,46 +27,63 @@ body {
     text-decoration: underline;
 }
 
-/* Terminal Log Container */
-.terminal {
+/* Section Styling */
+.intro-section, .concept-section {
     max-width: 800px;
-    margin: auto;
-    background: black;
+    margin: 30px auto;
+    padding: 20px;
+    background: #111;
     border: 2px solid #00ff99;
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 0 0 10px #00ff99;
-    padding: 10px;
-    margin-top: 20px;
+    text-align: left;
 }
 
-/* Terminal Header */
+.intro-section h2, .concept-section h3 {
+    color: #00ff99;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.intro-section p, .concept-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #c3f3d6; /* Lighter green for readability */
+}
+
+/* Terminal Log */
+.terminal {
+    max-width: 850px;
+    margin: 40px auto;
+    background: #222;
+    border: 3px solid #00ff99;
+    box-shadow: 0 0 15px #00ff99;
+    padding: 15px;
+    text-align: left;
+}
+
 .terminal-header {
-    background: #00332e;
-    padding: 5px 10px;
     font-weight: bold;
-    border-bottom: 2px solid #00ff99;
+    font-size: 1.3em;
+    color: #00ff99;
+    margin-bottom: 10px;
 }
 
-/* Terminal Body */
 .terminal-body {
-    height: 300px;
-    overflow-y: auto;
-    padding: 10px;
-    font-size: 14px;
-    line-height: 1.4;
-    white-space: pre-line;
+    background: black;
+    padding: 15px;
+    color: #00ff99;
+    font-family: 'Courier New', monospace;
+    min-height: 150px;
 }
 
-/* Typing Animation */
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-.terminal-body p {
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid #00ff99;
-    animation: typing 2s steps(40, end) forwards;
+/* Footer */
+.site-footer {
+    background: black;
+    color: #00ff99;
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid #00ff99;
+    font-family: 'Courier New', monospace;
+    width: 100%;
 }

@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setupFeedbackTerminal();
     setupCloseButton();
     setupReopenTerminal();
+    loadFeedback();
 });
 
 let step = 0;
@@ -24,7 +25,7 @@ function setupFeedbackTerminal() {
 }
 
 function processStep(input, outputDiv, inputField) {
-    outputDiv.innerHTML += `<p>> ${input}</p>`; // Show user input
+    outputDiv.innerHTML += `<p>> ${input}</p>`;
 
     if (step === 0) {
         userName = input;
@@ -39,24 +40,54 @@ function processStep(input, outputDiv, inputField) {
         outputDiv.innerHTML += `<p>Thank you, ${userName} from ${userSection}!</p>`;
         outputDiv.innerHTML += `<p>Your feedback has been recorded.</p>`;
 
-        displayFeedback(userName, userSection, userFeedback);
-        step = 0; // Reset for new feedback
+        submitFeedback(userName, userSection, userFeedback);
+        step = 0;
     }
 
     inputField.value = "";
     outputDiv.scrollTop = outputDiv.scrollHeight;
 }
 
-function displayFeedback(name, section, feedback) {
-    const feedbackList = document.getElementById("feedback-list");
-    const feedbackEntry = document.createElement("div");
-    feedbackEntry.classList.add("feedback-entry");
-    feedbackEntry.innerHTML = `
-        <p><strong>${name}</strong> (Section: ${section})</p>
-        <p>${feedback}</p>
-        <hr>
-    `;
-    feedbackList.prepend(feedbackEntry);
+function submitFeedback(name, section, feedback) {
+    fetch("/submit_feedback", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: name,
+            section: section,
+            message: feedback
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            loadFeedback(); // Refresh feedback list
+        }
+    })
+    .catch(error => console.error("Error:", error));
+}
+
+function loadFeedback() {
+    fetch("/get_feedback")
+        .then(response => response.json())
+        .then(data => {
+            const feedbackList = document.getElementById("feedback-list");
+            feedbackList.innerHTML = "";
+
+            data.forEach(feedback => {
+                const feedbackEntry = document.createElement("div");
+                feedbackEntry.classList.add("feedback-entry");
+                feedbackEntry.innerHTML = `
+                    <p><strong>${feedback.name}</strong> (Section: ${feedback.section})</p>
+                    <p>${feedback.message}</p>
+                    <hr>
+                `;
+                feedbackList.prepend(feedbackEntry);
+            });
+        })
+        .catch(error => console.error("Error fetching feedback:", error));
 }
 
 /* Close Terminal */

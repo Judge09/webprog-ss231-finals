@@ -116,3 +116,32 @@ body {
     0% { top: 0; }
     100% { top: 100%; }
 }
+
+
+/* Footer stays at the bottom */
+.site-footer {
+    background: black;
+    color: #00ff99;
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid #00ff99;
+    font-family: 'Courier New', monospace;
+    width: 100%;
+}
+
+/* Ensures main content takes available space */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Keeps content structured without affecting Matrix Rain */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
