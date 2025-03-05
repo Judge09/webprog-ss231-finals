@@ -1,29 +1,42 @@
 document.addEventListener("DOMContentLoaded", function () {
     const terminalOutput = document.getElementById("terminal-output");
-
-    // List of sources (Modify as needed)
-    const sources = [
-        "[INFO] Source loaded: https://example.com/article1",
-        "[INFO] Source loaded: https://example.com/tutorial",
-        "[INFO] API reference: https://developer.mozilla.org/",
-        "[WARNING] Unverified source detected...",
-        "[SECURE] Encrypted database access granted",
-        "[INFO] Fetching latest documentation updates...",
-        "[ALERT] Unauthorized attempt to modify logs detected",
+    const text = [
+        "Initializing source logs...",
+        "Loading system dependencies...",
+        "Fetching references...",
+        "Accessing documentation...",
+        "System check: OK",
+        "Source logs successfully loaded."
     ];
-
+    
     let index = 0;
 
-    function addLogEntry() {
-        if (index < sources.length) {
-            const p = document.createElement("p");
-            p.textContent = sources[index];
-            terminalOutput.appendChild(p);
-            terminalOutput.scrollTop = terminalOutput.scrollHeight;
-            index++;
-            setTimeout(addLogEntry, 1500);
+    function typeLine() {
+        if (index < text.length) {
+            let line = document.createElement("p");
+            terminalOutput.appendChild(line);
+
+            let charIndex = 0;
+            function typeChar() {
+                if (charIndex < text[index].length) {
+                    line.innerHTML = text[index].slice(0, charIndex) + `<span class="cursor">|</span>`;
+                    charIndex++;
+                    setTimeout(typeChar, 50); // Typing speed
+                } else {
+                    line.innerHTML = text[index]; // Remove cursor after typing
+                    index++;
+                    setTimeout(typeLine, 500); // Delay before next line
+                }
+            }
+            typeChar();
+        } else {
+            // Keep the blinking cursor at the last line
+            let cursorSpan = document.createElement("span");
+            cursorSpan.classList.add("cursor");
+            cursorSpan.textContent = "|";
+            terminalOutput.appendChild(cursorSpan);
         }
     }
 
-    setTimeout(addLogEntry, 1000);
+    typeLine();
 });
