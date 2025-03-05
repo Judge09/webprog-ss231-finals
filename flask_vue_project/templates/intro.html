@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Alert</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: black;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Windows-Style Alert Box */
+        .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        color: black;
+        width: 320px;
+        height: 200px; /* Increased height */
+        padding: 15px;
+        border: 2px solid black;
+        box-shadow: 4px 4px 0px black;
+        text-align: left;
+    }
+
+
+        .popup-header {
+            background: #0000A0;
+            color: white;
+            font-weight: bold;
+            padding: 6px;
+            font-size: 14px;
+        }
+
+        .popup-body {
+    padding-top: 15px; /* Increased top padding */
+    padding-bottom: 15px; /* Added bottom padding */
+    font-size: 14px;
+    line-height: 1.6; /* Increased line spacing */
+}
+
+.popup-body b {
+    display: block;
+    margin-bottom: 10px; /* Increased spacing below the bold text */
+}
+
+.popup-body p {
+    margin-bottom: 8px; /* Added spacing between paragraphs */
+}
+
+
+        .matrix {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background: black;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Windows-Style Alert Box -->
+    <div class="popup" id="popup">
+        <div class="popup-header">System Alert</div>
+        <div class="popup-body">
+            <b>⚠ You have been hacked!</b>
+            <p>Device: <span id="deviceName">Detecting...</span></p>
+            <p>You can close this message in <span id="countdown">4</span> seconds...</p>
+        </div>
+    </div>
+
+    <!-- Matrix Code Rain -->
+    <div class="matrix" id="matrix">
+        <canvas id="matrixCanvas"></canvas>
+    </div>
+
+    <script>
+        let countdown = 4;
+        const countdownElement = document.getElementById("countdown");
+        const popup = document.getElementById("popup");
+        const matrix = document.getElementById("matrix");
+
+        // Detect user's device name
+        function getDeviceName() {
+            let userAgent = navigator.userAgent;
+            if (userAgent.includes("Windows")) return "Windows PC";
+            if (userAgent.includes("Mac")) return "MacBook";
+            if (userAgent.includes("Linux")) return "Linux Machine";
+            if (userAgent.includes("Android")) return "Android Device";
+            if (userAgent.includes("iPhone")) return "iPhone";
+            return "Unknown Device";
+        }
+
+        document.getElementById("deviceName").innerText = getDeviceName();
+
+        // Countdown for pop-up
+        const interval = setInterval(() => {
+            countdown--;
+            countdownElement.innerText = countdown;
+            if (countdown <= 0) {
+                clearInterval(interval);
+                closePopup();
+            }
+        }, 1000);
+
+        function closePopup() {
+            popup.style.display = "none";
+            matrix.style.display = "block";
+            startMatrixEffect();
+        }
+
+        // Matrix Code Rain Effect
+        function startMatrixEffect() {
+            const canvas = document.getElementById("matrixCanvas");
+            const ctx = canvas.getContext("2d");
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const letters = "010101110011001010101110010101010011";
+            const matrixChars = letters.split("");
+            const fontSize = 18;
+            const columns = canvas.width / fontSize;
+            const drops = Array(Math.floor(columns)).fill(1);
+
+            function drawMatrix() {
+                ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = "#0F0";
+                ctx.font = fontSize + "px monospace";
+
+                for (let i = 0; i < drops.length; i++) {
+                    const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+
+                    drops[i]++;
+                }
+            }
+
+            setInterval(drawMatrix, 50);
+
+            // Redirect after 5 seconds
+            setTimeout(() => {
+                window.location.href = "{{ url_for('index') }}";
+            }, 5000);
+        }
+    </script>
+
+</body>
+</html>
