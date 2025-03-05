@@ -47,28 +47,39 @@
             </div>
             <div class="image-container">
                 <img src="{{ url_for('static', filename='img/home-image.jpg') }}" alt="Profile Image">
-                <div class="secret-text">SECRET FILE</div>
+                <button class="secret-text">SECRET FILE</button>
+
             </div>
-            
-            
+
+
+        
         </section>
         
 
     </main>
 
-    <!-- Matrix Effect Background 
-    <aside class="matrix-container">
-    </aside>
--->
+  <!-- Secret Button -->
+<button class="secret-text">SECRET FILE</button>
+
+<!-- Hidden Modal -->
+<div id="hintModal" class="modal-overlay">
+    <div class="modal-content">
+        <h2>🚩 CTF Hint 🚩</h2>
+        <p>Sometimes, secrets are hidden in plain sight. Maybe check **robots.txt**?</p>
+        <button id="closeModal">Close</button>
+    </div>
+</div>
+
+
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 
 <footer class="site-footer">
     <p>© 2024 Jhon Lloyd Nicolas. All Rights Reserved.</p>
     <div class="footer-socials">
-        <a href="https://github.com/YOUR_GITHUB" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://youtube.com/@YOUR_YOUTUBE" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://github.com/Judge09" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/jhon-lloyd-nicolas/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@jhonlloydnicolas5742" target="_blank"><i class="fab fa-youtube"></i></a>
     </div>
 </footer>
 

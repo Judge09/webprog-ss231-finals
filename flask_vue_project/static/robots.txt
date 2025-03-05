@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin
+Allow: /
+
+# 
+# CTF{c0ngr4tul4t10ns???}

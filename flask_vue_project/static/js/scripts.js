@@ -162,9 +162,24 @@ function startHackingConsole() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const secretFile = document.querySelector(".image-container");
+    const imageContainer = document.querySelector(".image-container");
+    const secretButton = document.querySelector(".secret-text");
 
-    secretFile.addEventListener("click", function () {
-        alert("🚩 There is a HIDDEN FLAG somewhere in this page . Find it! 🚩");
-    });
+    if (imageContainer && secretButton) {
+        imageContainer.addEventListener("click", function () {
+            // Toggle visibility on click
+            if (secretButton.style.display === "block") {
+                secretButton.style.display = "none";
+                imageContainer.querySelector("img").style.opacity = "1"; // Show image
+            } else {
+                secretButton.style.display = "block";
+                imageContainer.querySelector("img").style.opacity = "0"; // Hide image
+            }
+        });
+
+        // Show modal when clicking the secret file button
+        secretButton.addEventListener("click", function () {
+            document.getElementById("hintModal").style.display = "flex";
+        });
+    }
 });

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, send_from_directory
 from supabase import create_client
 
 app = Flask(__name__)
@@ -55,6 +55,10 @@ def submit_feedback():
         return jsonify({"success": True})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory('static', 'robots.txt')
 
 if __name__ == '__main__':
     app.run(debug=True)
