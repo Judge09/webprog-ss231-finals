@@ -29,10 +29,14 @@ body {
 }
 
 /* File Directory Layout */
-.file-directory {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
+
+/* Center Flip Containers */
+.flip-container {
+    width: 400px; /* Adjust size */
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Folder List */
