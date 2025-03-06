@@ -108,7 +108,7 @@ function showMainContent() {
 window.onload = showPopup;
 
 document.addEventListener("DOMContentLoaded", function () {
-    setTimeout(startTypingEffect, 12000); // 12-second delay
+    setTimeout(startTypingEffect, 2000); // 12-second delay
     setupTerminal();
 });
 

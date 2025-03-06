@@ -7,6 +7,7 @@ body {
     transform: scale(0.75);
     transform-origin: top left;
     width: calc(100% / 0.75);
+    overflow-x: hidden;
 }
 
 /* Navigation Bar */
@@ -29,7 +30,8 @@ body {
 
 /* Section Styling */
 .intro-section, .concept-section {
-    max-width: 800px;
+    width: 90%;
+    max-width: 850px;
     margin: 30px auto;
     padding: 20px;
     background: #111;
@@ -48,11 +50,12 @@ body {
 .intro-section p, .concept-section p {
     font-size: 1.1em;
     line-height: 1.6;
-    color: #c3f3d6; /* Lighter green for readability */
+    color: #c3f3d6;
 }
 
 /* Terminal Log */
 .terminal {
+    width: 90%;
     max-width: 850px;
     margin: 40px auto;
     background: #222;
@@ -88,18 +91,6 @@ body {
     width: 100%;
 }
 
-
-/* Footer stays at the bottom */
-.site-footer {
-    background: black;
-    color: #00ff99;
-    text-align: center;
-    padding: 15px;
-    border-top: 2px solid #00ff99;
-    font-family: 'Courier New', monospace;
-    width: 100%;
-}
-
 /* Ensures main content takes available space */
 html, body {
     height: 100%;
@@ -115,15 +106,58 @@ html, body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 20px;
 }
 
+/* Matrix Rain Animation Background */
 #particleCanvas {
     position: fixed;
-    top: 20vh; /* Expands beyond the top */
-    left: -10vw; /* Expands beyond the left */
-    width: 150vw; /* Expands beyond the right */
-    height: 150vh; /* Expands beyond the bottom */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: -1;
     pointer-events: none;
     opacity: 0.8;
+}
+
+/* Feedback List */
+.feedback-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-top: 10px;
+}
+
+/* Feedback Entry */
+.feedback-entry {
+    background: #111;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #00ff99;
+    box-shadow: 0 0 8px #00ff99;
+    text-align: center;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+    width: 850px;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-wrap: break-word;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .intro-section, .concept-section, .terminal, .feedback-entry {
+        width: 95%;
+    }
+}
+
+@media (max-width: 600px) {
+    .intro-section, .concept-section, .terminal, .feedback-entry {
+        width: 100%;
+        padding: 15px;
+    }
 }

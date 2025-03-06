@@ -10,12 +10,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.prod.js"></script>
 </head>
 
-<style>
-
-    
-
-</style>
-
 <body class="dark-mode">
 
    <!-- Navigation Bar -->
@@ -27,7 +21,7 @@
     <a href="{{ url_for('sources') }}" class="mx-2"><i class="fas fa-terminal icon"></i> Sources</a>
 </header>
 
-
+    
     <!-- Main Content -->
     <main id="mainContent" class="container text-center mt-5 hidden">
         <h1 id="typingText" class="glitch-text"></h1>
@@ -48,21 +42,15 @@
             <div class="image-container">
                 <img src="{{ url_for('static', filename='img/home-image.jpg') }}" alt="Profile Image">
                 <button class="secret-text">SECRET FILE</button>
-
             </div>
-
-
-        
         </section>
-        
-
     </main>
 
   <!-- Secret Button -->
 <button class="secret-text">SECRET FILE</button>
 
 <!-- Hidden Modal -->
-<div id="hintModal" class="modal-overlay">
+<div id="hintModal" class="modal-overlay" style="display: none;">
     <div class="modal-content">
         <h2>🚩 CTF Hint 🚩</h2>
         <p>Sometimes, secrets are hidden in plain sight. Maybe check **robots.txt**?</p>
@@ -70,8 +58,19 @@
     </div>
 </div>
 
+<script>
+    document.querySelectorAll(".secret-text").forEach(button => {
+        button.addEventListener("click", function() {
+            document.getElementById("hintModal").style.display = "block";
+        });
+    });
 
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    document.getElementById("closeModal").addEventListener("click", function() {
+        document.getElementById("hintModal").style.display = "none";
+    });
+</script>
+
+<script src="static/js/scripts.js"></script>
 <script src="static/js/particles.js"></script>
 
 </body>
@@ -84,7 +83,5 @@
         <a href="https://www.youtube.com/@jhonlloydnicolas5742" target="_blank"><i class="fab fa-youtube"></i></a>
     </div>
 </footer>
-
-
 
 </html>

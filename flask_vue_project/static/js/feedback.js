@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
     setupFeedbackTerminal();
-    setupCloseButton();
     setupReopenTerminal();
     loadFeedback();
 });

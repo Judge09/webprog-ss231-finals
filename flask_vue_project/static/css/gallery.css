@@ -239,12 +239,11 @@ html, body {
 }
 
 #particleCanvas {
-    position: fixed;
-    top: 20vh; /* Expands beyond the top */
-    left: -10vw; /* Expands beyond the left */
-    width: 150vw; /* Expands beyond the right */
-    height: 150vh; /* Expands beyond the bottom */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150vw;
+    height: 400vh;
     z-index: -1;
     pointer-events: none;
-    opacity: 0.8;
 }
