@@ -6,7 +6,17 @@ document.addEventListener("DOMContentLoaded", function () {
         "Fetching references...",
         "Accessing documentation...",
         "System check: OK",
-        "Source logs successfully loaded."
+        "Source logs successfully loaded.",
+        "Source 1: Bootstrap - https://getbootstrap.com/",
+        "Source 2: Font Awesome - https://fontawesome.com/",
+        "Source 3: Vue.js - https://vuejs.org/",
+        "Source 4: Flask - https://flask.palletsprojects.com/",
+        "Source 5: JSDelivr CDN - https://www.jsdelivr.com/",
+        "Source 6: Google Fonts - https://fonts.google.com/",
+        "Source 7: Mozilla Developer Network (MDN) - https://developer.mozilla.org/",
+        "Source 8: W3Schools - https://www.w3schools.com/",
+        "Source 9: Flask Static Files - https://flask.palletsprojects.com/en/2.0.x/tutorial/static/"
+
     ];
     
     let index = 0;
